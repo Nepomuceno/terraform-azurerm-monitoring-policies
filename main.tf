@@ -8,16 +8,16 @@ provider "azurerm" {
 
 
 resource "azurerm_policy_definition" "base" {
-  for_each     = fileset("${path.module}/out", "**/rule.json")
+  for_each     = fileset("${path.module}/templates", "**/rule.json")
   name         = substr("log-${replace(each.value, "/rule.json", "")}", 0, 54)
   policy_type  = "Custom"
   mode         = "All"
   display_name = "Diagnostic policy ${replace(each.value, "/rule.json", "")}"
   policy_rule = file(
-    "${path.module}/out/${each.value}",
+    "${path.module}/templates/${each.value}",
   )
   parameters = file(
-    "${path.module}/out/${replace(each.value, "/rule.json", "/parameters.json")}",
+    "${path.module}/templates/${replace(each.value, "/rule.json", "/parameters.json")}",
   )
 }
 
