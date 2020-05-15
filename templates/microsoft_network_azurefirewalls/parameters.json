@@ -1,0 +1,49 @@
+{
+    "requiredRetentionDays": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Required retention (days)",
+        "description": "The required diagnostic logs retention in days"
+      },
+      "defaultValue": "365"
+    },
+    "eventHubName": {
+        "type": "String",
+        "metadata":{
+            "displayName": "Event hub to send the data to",
+            "description": ""
+        },
+        "defaultValue": ""
+    },
+    "eventHubAuthorizationRuleId": {
+        "type": "String",
+        "metadata":{
+            "displayName": "Event hub rule to be used to send data",
+            "description": ""
+        },
+        "defaultValue": ""
+    },
+    "workspaceId": {
+        "type": "String",
+        "metadata":{
+            "displayName": "Log analytics workspace id to send the data to",
+            "description": ""
+        },
+        "defaultValue": ""
+    },
+    "storageAccountName": {
+        "type": "String",
+        "metadata":{
+            "displayName": "Storage account to send the data to",
+            "description": ""
+        },
+        "defaultValue": ""
+    },
+    "resourceLocation": {
+        "type": "String",
+        "metadata": {
+          "description": "location to put this diagnostic",
+          "displayName": "location where this diagnostic is"
+        }
+    }
+}
