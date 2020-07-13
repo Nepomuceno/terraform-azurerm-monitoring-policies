@@ -110,6 +110,16 @@
 											}
 										}
 										
+                                        ,
+                                        {
+											"category": "SystemLogs",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
                                     ],
                                     "metrics": [
 										

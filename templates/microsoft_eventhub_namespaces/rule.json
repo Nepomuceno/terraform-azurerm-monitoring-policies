@@ -112,7 +112,7 @@
 										
                                         ,
                                         {
-											"category": "OperationalLogs",
+											"category": "AutoScaleLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -122,7 +122,17 @@
 										
                                         ,
                                         {
-											"category": "AutoScaleLogs",
+											"category": "CustomerManagedKeyUserLogs",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "EventHubVNetConnectionEvent",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -152,17 +162,7 @@
 										
                                         ,
                                         {
-											"category": "EventHubVNetConnectionEvent",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "CustomerManagedKeyUserLogs",
+											"category": "OperationalLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

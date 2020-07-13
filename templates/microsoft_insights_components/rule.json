@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.Network/virtualNetworkGateways"
+              "equals": "Microsoft.Insights/Components"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.Network/virtualNetworkGateways/providers/diagnosticSettings",
+                                "type": "Microsoft.Insights/Components/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "GatewayDiagnosticLog",
+											"category": "AppAvailabilityResults",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -112,7 +112,7 @@
 										
                                         ,
                                         {
-											"category": "IKEDiagnosticLog",
+											"category": "AppBrowserTimings",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -122,7 +122,7 @@
 										
                                         ,
                                         {
-											"category": "P2SDiagnosticLog",
+											"category": "AppDependencies",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -132,7 +132,7 @@
 										
                                         ,
                                         {
-											"category": "RouteDiagnosticLog",
+											"category": "AppEvents",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -142,7 +142,67 @@
 										
                                         ,
                                         {
-											"category": "TunnelDiagnosticLog",
+											"category": "AppExceptions",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "AppMetrics",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "AppPageViews",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "AppPerformanceCounters",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "AppRequests",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "AppSystemEvents",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "AppTraces",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

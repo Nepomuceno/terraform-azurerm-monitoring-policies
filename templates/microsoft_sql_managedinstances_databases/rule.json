@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "SQLInsights",
+											"category": "Errors",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -132,7 +132,7 @@
 										
                                         ,
                                         {
-											"category": "Errors",
+											"category": "SQLInsights",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

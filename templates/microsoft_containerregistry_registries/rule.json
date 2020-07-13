@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "ContainerRegistryRepositoryEvents",
+											"category": "ContainerRegistryLoginEvents",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -112,7 +112,7 @@
 										
                                         ,
                                         {
-											"category": "ContainerRegistryLoginEvents",
+											"category": "ContainerRegistryRepositoryEvents",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

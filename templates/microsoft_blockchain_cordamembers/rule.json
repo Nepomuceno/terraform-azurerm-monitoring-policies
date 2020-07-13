@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.Storage/storageAccounts/tableServices"
+              "equals": "Microsoft.Blockchain/cordaMembers"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.Storage/storageAccounts/tableServices/providers/diagnosticSettings",
+                                "type": "Microsoft.Blockchain/cordaMembers/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,27 +102,7 @@
 										
                                         
                                         {
-											"category": "StorageRead",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "StorageWrite",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "StorageDelete",
+											"category": "BlockchainApplication",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -132,15 +112,6 @@
 										
                                     ],
                                     "metrics": [
-										
-											{
-												"category": "AllMetrics",
-												"enabled": true,
-												"retentionPolicy": {
-													"enabled": true,
-													"days": "[parameters('retentionDays')]"
-												}
-											}
 										
                                     ]
                                 }

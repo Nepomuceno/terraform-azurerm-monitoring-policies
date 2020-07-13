@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.Storage/storageAccounts/fileServices"
+              "equals": "Microsoft.Cdn/cdnwebapplicationfirewallpolicies"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.Storage/storageAccounts/fileServices/providers/diagnosticSettings",
+                                "type": "Microsoft.Cdn/cdnwebapplicationfirewallpolicies/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,27 +102,7 @@
 										
                                         
                                         {
-											"category": "StorageRead",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "StorageWrite",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "StorageDelete",
+											"category": "WebApplicationFirewallLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

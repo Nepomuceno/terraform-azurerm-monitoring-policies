@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.Network/virtualNetworkGateways"
+              "equals": "Microsoft.DBforMariaDB/servers"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.Network/virtualNetworkGateways/providers/diagnosticSettings",
+                                "type": "Microsoft.DBforMariaDB/servers/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "GatewayDiagnosticLog",
+											"category": "MySqlAuditLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -112,37 +112,7 @@
 										
                                         ,
                                         {
-											"category": "IKEDiagnosticLog",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "P2SDiagnosticLog",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "RouteDiagnosticLog",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "TunnelDiagnosticLog",
+											"category": "MySqlSlowLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.DesktopVirtualization/hostPools"
+              "equals": "Microsoft.DesktopVirtualization/hostpools"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.DesktopVirtualization/hostPools/providers/diagnosticSettings",
+                                "type": "Microsoft.DesktopVirtualization/hostpools/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -112,26 +112,6 @@
 										
                                         ,
                                         {
-											"category": "Error",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "Management",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
 											"category": "Connection",
 											"enabled": true,
 											"retentionPolicy": {
@@ -142,7 +122,27 @@
 										
                                         ,
                                         {
+											"category": "Error",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "HostRegistration",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "Management",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

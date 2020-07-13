@@ -102,6 +102,26 @@
 										
                                         
                                         {
+											"category": "CassandraRequests",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "ControlPlaneRequests",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "DataPlaneRequests",
 											"enabled": true,
 											"retentionPolicy": {
@@ -122,7 +142,7 @@
 										
                                         ,
                                         {
-											"category": "QueryRuntimeStatistics",
+											"category": "PartitionKeyRUConsumption",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -142,7 +162,7 @@
 										
                                         ,
                                         {
-											"category": "ControlPlaneRequests",
+											"category": "QueryRuntimeStatistics",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

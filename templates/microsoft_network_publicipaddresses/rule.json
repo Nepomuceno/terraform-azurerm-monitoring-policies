@@ -102,16 +102,6 @@
 										
                                         
                                         {
-											"category": "DDoSProtectionNotifications",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
 											"category": "DDoSMitigationFlowLogs",
 											"enabled": true,
 											"retentionPolicy": {
@@ -123,6 +113,16 @@
                                         ,
                                         {
 											"category": "DDoSMitigationReports",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "DDoSProtectionNotifications",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

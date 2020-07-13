@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.Network/vpnGateways"
+              "equals": "Microsoft.EventGrid/systemTopics"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.Network/vpnGateways/providers/diagnosticSettings",
+                                "type": "Microsoft.EventGrid/systemTopics/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,37 +102,7 @@
 										
                                         
                                         {
-											"category": "GatewayDiagnosticLog",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "TunnelDiagnosticLog",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "RouteDiagnosticLog",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "IKEDiagnosticLog",
+											"category": "DeliveryFailures",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -142,6 +112,15 @@
 										
                                     ],
                                     "metrics": [
+										
+											{
+												"category": "AllMetrics",
+												"enabled": true,
+												"retentionPolicy": {
+													"enabled": true,
+													"days": "[parameters('retentionDays')]"
+												}
+											}
 										
                                     ]
                                 }

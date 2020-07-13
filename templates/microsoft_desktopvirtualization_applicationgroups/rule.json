@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.DesktopVirtualization/applicationGroups"
+              "equals": "Microsoft.DesktopVirtualization/applicationgroups"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.DesktopVirtualization/applicationGroups/providers/diagnosticSettings",
+                                "type": "Microsoft.DesktopVirtualization/applicationgroups/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",

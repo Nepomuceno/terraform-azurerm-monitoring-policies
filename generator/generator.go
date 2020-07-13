@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
 )
 
@@ -15,6 +16,15 @@ type LogStructure struct {
 	ResourceType string
 }
 
+var regexGroup, _ = regexp.Compile(`^## ([mM]+icrosoft\.[\w+\/]+)$`)
+
+var unsupportedResources = map[string]bool{
+	formatName("microsoft.storage/storageaccounts/blobservices"):  false,
+	formatName("microsoft.storage/storageaccounts/fileservices"):  false,
+	formatName("Microsoft.Storage/storageAccounts/queueServices"): false,
+	formatName("Microsoft.Storage/storageAccounts/tableServices"): false,
+}
+
 func formatName(name string) string {
 	return strings.ToLower(strings.Replace(strings.Replace(name, "/", "_", -1), ".", "_", -1))
 }
@@ -22,7 +32,7 @@ func formatName(name string) string {
 func getDefinitions() (map[string]LogStructure, error) {
 	metrics, err := getMetrics()
 	// Getting data from the azure
-	resp, err := http.Get("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/azure-monitor/platform/diagnostic-logs-schema.md")
+	resp, err := http.Get("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/azure-monitor/platform/resource-logs-categories.md")
 	if err != nil {
 		return nil, err
 	}
@@ -32,33 +42,36 @@ func getDefinitions() (map[string]LogStructure, error) {
 		return nil, err
 	}
 	content := string(body)
-	var foundSession, endSession bool = false, false
+	var resourceName string = ""
 	response := make(map[string]LogStructure)
 	for _, line := range strings.Split(content, "\n") {
-		if line == "|Resource Type|Category|Category Display Name|" {
-			foundSession = true
+		founds := regexGroup.FindAllString(line, 1)
+		if len(founds) > 0 {
+			resourceName = strings.ReplaceAll(founds[0], "## ", "")
+		}
+		if len(resourceName) == 0 {
 			continue
 		}
-		if foundSession && !endSession {
-			if len(line) == 0 {
-				endSession = true
-				continue
-			}
-			if line == "|---|---|---|" || line == "|Resource Type|Category|Category Display Name|" {
-				continue
-			}
-			logCategory := strings.Split(line, "|")
-			logName := formatName(logCategory[1])
-			cat, exist := response[logName]
-			if exist {
-				cat.Categories = append(cat.Categories, logCategory[2])
-			} else {
-				cat.ResourceType = logCategory[1]
-				cat.Categories = []string{logCategory[2]}
-				_, cat.HasMetrics = metrics[logName]
-			}
-			response[logName] = cat
+		logName := formatName(resourceName)
+		_, unsupported := unsupportedResources[logName]
+		if unsupported {
+			continue
 		}
+		if !strings.HasPrefix(line, "|") || line == "|---|---|" || line == "|Category|Category Display Name|" {
+			continue
+		}
+		logCategory := strings.Split(line, "|")
+
+		cat, exist := response[logName]
+
+		if exist {
+			cat.Categories = append(cat.Categories, logCategory[1])
+		} else {
+			cat.ResourceType = resourceName
+			cat.Categories = []string{logCategory[1]}
+			_, cat.HasMetrics = metrics[logName]
+		}
+		response[logName] = cat
 	}
 	return response, nil
 }

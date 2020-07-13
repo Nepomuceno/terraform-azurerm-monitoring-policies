@@ -102,26 +102,6 @@
 										
                                         
                                         {
-											"category": "Trace",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "Operational",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
 											"category": "Audit",
 											"enabled": true,
 											"retentionPolicy": {
@@ -132,7 +112,7 @@
 										
                                         ,
                                         {
-											"category": "UserDefinedFunction",
+											"category": "Egress",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -152,7 +132,27 @@
 										
                                         ,
                                         {
-											"category": "Egress",
+											"category": "Operational",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "Trace",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "UserDefinedFunction",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

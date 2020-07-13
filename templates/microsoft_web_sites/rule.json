@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "FunctionAppLogs",
+											"category": "AppServiceAppLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -112,7 +112,7 @@
 										
                                         ,
                                         {
-											"category": "AppServiceHTTPLogs",
+											"category": "AppServiceAuditLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -132,16 +132,6 @@
 										
                                         ,
                                         {
-											"category": "AppServiceAppLogs",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
 											"category": "AppServiceFileAuditLogs",
 											"enabled": true,
 											"retentionPolicy": {
@@ -152,7 +142,27 @@
 										
                                         ,
                                         {
-											"category": "AppServiceAuditLogs",
+											"category": "AppServiceHTTPLogs",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "FunctionAppLogs",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "ScanLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

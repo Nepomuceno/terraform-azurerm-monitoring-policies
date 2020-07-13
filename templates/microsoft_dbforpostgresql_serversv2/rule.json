@@ -110,26 +110,6 @@
 											}
 										}
 										
-                                        ,
-                                        {
-											"category": "QueryStoreRuntimeStatistics",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "QueryStoreWaitStatistics",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
                                     ],
                                     "metrics": [
 										

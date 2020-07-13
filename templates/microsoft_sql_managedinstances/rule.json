@@ -102,6 +102,16 @@
 										
                                         
                                         {
+											"category": "DevOpsOperationsAudit",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "ResourceUsageStats",
 											"enabled": true,
 											"retentionPolicy": {

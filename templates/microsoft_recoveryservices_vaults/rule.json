@@ -102,17 +102,7 @@
 										
                                         
                                         {
-											"category": "AzureBackupReport",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "CoreAzureBackup",
+											"category": "AddonAzureBackupAlerts",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -132,27 +122,7 @@
 										
                                         ,
                                         {
-											"category": "AddonAzureBackupAlerts",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
 											"category": "AddonAzureBackupPolicy",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "AddonAzureBackupStorage",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -172,7 +142,17 @@
 										
                                         ,
                                         {
-											"category": "AzureSiteRecoveryJobs",
+											"category": "AddonAzureBackupStorage",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "AzureBackupReport",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -192,7 +172,7 @@
 										
                                         ,
                                         {
-											"category": "AzureSiteRecoveryReplicatedItems",
+											"category": "AzureSiteRecoveryJobs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -202,7 +182,7 @@
 										
                                         ,
                                         {
-											"category": "AzureSiteRecoveryReplicationStats",
+											"category": "AzureSiteRecoveryProtectedDiskDataChurn",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -222,6 +202,16 @@
 										
                                         ,
                                         {
+											"category": "AzureSiteRecoveryReplicatedItems",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "AzureSiteRecoveryReplicationDataUploadRate",
 											"enabled": true,
 											"retentionPolicy": {
@@ -232,7 +222,17 @@
 										
                                         ,
                                         {
-											"category": "AzureSiteRecoveryProtectedDiskDataChurn",
+											"category": "AzureSiteRecoveryReplicationStats",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "CoreAzureBackup",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
