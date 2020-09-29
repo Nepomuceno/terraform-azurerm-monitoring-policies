@@ -3,7 +3,7 @@
         "allOf": [
             {
               "field": "location",
-              "equals": "[parameters('resourceLocation')]"
+              "in": "[parameters('resourceLocation')]"
             },
             {
               "field": "type",
@@ -112,15 +112,6 @@
 										
                                     ],
                                     "metrics": [
-										
-											{
-												"category": "AllMetrics",
-												"enabled": true,
-												"retentionPolicy": {
-													"enabled": true,
-													"days": "[parameters('retentionDays')]"
-												}
-											}
 										
                                     ]
                                 }
