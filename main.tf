@@ -174,3 +174,7 @@ PARAMETERS
     ignore_changes = [metadata] // hacky hack hack, always says it has changed!
   }
 }
+
+output "basic_set_id" {
+  value = azurerm_policy_set_definition.basic_set.id
+}
