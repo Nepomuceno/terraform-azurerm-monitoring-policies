@@ -203,7 +203,7 @@ const templateParam = `{
         "defaultValue": ""
     },
     "resourceLocation": {
-        "type": "array",
+        "type": "Array",
         "metadata": {
           "description": "locations that you want to enable diagnotics to",
           "displayName": "location where disgnostics will be enabled",
