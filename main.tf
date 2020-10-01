@@ -23,7 +23,7 @@ resource "azurerm_policy_definition" "base" {
 
 
 resource "azurerm_policy_set_definition" "basic_set" {
-  name         = ""
+  name         = var.name
   policy_type  = "Custom"
   display_name = "Auto Diagnostics Policy Initiative"
 
