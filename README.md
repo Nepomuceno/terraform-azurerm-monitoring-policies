@@ -41,7 +41,7 @@ provider "azurerm" {
 }
 
 module "policies" {
-  source = "../../"
+  source = "git@github.com:Nepomuceno/terraform-azurerm-monitoring-policies.git"
 }
 
 resource "azurerm_resource_group" "example" {
