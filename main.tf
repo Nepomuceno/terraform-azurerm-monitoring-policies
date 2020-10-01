@@ -70,7 +70,7 @@ resource "azurerm_policy_set_definition" "basic_set" {
         "defaultValue": ""
     },
     "resourceLocation": {
-        "type": "array",
+        "type": "Array",
         "metadata": {
           "description": "locations that you want to enable diagnotics to",
           "displayName": "location where disgnostics will be enabled",
@@ -144,31 +144,22 @@ resource "azurerm_policy_set_definition" "basic_set" {
 }
 PARAMETERS
 
-  policy_definitions = jsonencode([
-    for def in azurerm_policy_definition.base : {
-      parameters = {
-        requiredRetentionDays = {
-          value = "[parameters('requiredRetentionDays')]"
-        },
-        eventHubName = {
-          value = "[parameters('eventHubName')]"
-        },
-        eventHubAuthorizationRuleId = {
-          value = "[parameters('eventHubAuthorizationRuleId')]"
-        },
-        workspaceId = {
-          value = "[parameters('workspaceId')]"
-        },
-        storageAccountName = {
-          value = "[parameters('storageAccountName')]"
-        },
-        resourceLocation = {
-          value = "[parameters('resourceLocation')]"
-        },
-      },
-      policyDefinitionId = def.id
+  dynamic "policy_definition_reference" {
+    for_each = azurerm_policy_definition.base
+    content {  
+      policy_definition_id = policy_definition_reference.value.id
+      parameter_values =  <<EOL
+          {
+            "eventHubAuthorizationRuleId": {"value": "[parameters('eventHubAuthorizationRuleId')]"},
+            "eventHubName": {"value": "[parameters('eventHubName')]"},
+            "requiredRetentionDays": {"value": "[parameters('requiredRetentionDays')]"},
+            "resourceLocation": {"value": "[parameters('resourceLocation')]"},
+            "storageAccountName": {"value": "[parameters('storageAccountName')]"},
+            "workspaceId": {"value": "[parameters('workspaceId')]"}
+          }
+          EOL
     }
-  ])
+  }
 
   lifecycle {
     ignore_changes = [metadata] // hacky hack hack, always says it has changed!
