@@ -25,8 +25,8 @@ resource "azurerm_policy_definition" "base" {
 resource "azurerm_policy_set_definition" "basic_set" {
   name         = var.name
   policy_type  = "Custom"
-  display_name = "Auto Diagnostics Policy Initiative"
-
+  display_name = var.name
+  management_group_name = var.management_group_name
   parameters = <<PARAMETERS
     {
     "requiredRetentionDays": {
