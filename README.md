@@ -1,16 +1,16 @@
 # Azure Monitoring Policies
 
-This will add policies to your subscription that can guarantee that all resources that are mentioned in the [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/resource-logs-categories) do have monitoring enabled.
+This will add policies to your subscription that can guarantee that all resources that are mentioned in the [documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/resource-logs-categories) have monitoring enabled.
 
 ## Design Decision
 
-This repository will only create the policy definitions and them you would need to apply this definition to the resource you want to. This is a deliberated decision given that you might want tto create the policy deficinion in the tenant level or the mangment group level and them apply this definition to your subscriptions in the subscription level. If you apply that in the managment group level all the logs from all the subscriptions will be directed to the same storage.
+This repository creates the policy definitions and a policy initiative, which is a collection of all of the policy definitions. You would need to apply the relevant definition (or the initiative) to the resource you want to monitor. This is a deliberate decision given that you might want to create the policy definition at the tenant level or the management group level and then apply the definition at the subscription or resource group level. If you assign a definition at the management group level all the logs from matching resources in all child subscriptions will be directed to the same log collection point (e.g. log analytics, event hub, storage blob).
 
-By default the policy is created inside the root managment group since we do nt requere one to be created.
+If you do not specify one, the policy is created inside the tenant root management group since we do not require one to be created.
 
 ## How to use it
 
-Using the module itself does not require any configuration since it just create the  
+Using the module itself does not require any configuration since it just creates the definitions.  
 
 ```terraform
 module "policies" {
@@ -18,7 +18,7 @@ module "policies" {
 }
 ```
 
-You can also add some configurations.
+You can also configure policy definition creation by overriding these terraform variables.
 
 ```terraform
 module "policies" {
@@ -28,7 +28,7 @@ module "policies" {
 }
 ```
 
-To use the policy you need to assign that to you subcription:
+To use a policy you need to assign it to either a resource group, a subscription or a management group. In this example, the policy initiative is applied to a resource group. The logs are directed to a log analytics workspace.  
 
 ```terraform
 terraform {
@@ -86,4 +86,4 @@ PARAMETERS
 }
 ```
 
-you can find examples of the implementations at the `examples` folder
+You can find examples of the implementations at the `examples` folder.
