@@ -18,6 +18,8 @@ module "policies" {
 }
 ```
 
+AzureRM version 2.29.0 or greater is required due to ['parameters' deprecation](https://github.com/terraform-providers/terraform-provider-azurerm/pull/8270).
+
 You can also configure policy definition creation by overriding these terraform variables.
 
 ```terraform
@@ -37,6 +39,7 @@ terraform {
 }
 
 provider "azurerm" {
+  version = ">=2.29.0"
   features {}
 }
 
