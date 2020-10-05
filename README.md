@@ -11,10 +11,14 @@ If you do not specify one, the policy is created inside the tenant root manageme
 ## How to use it
 
 Using the module itself does not require any configuration since it just creates the definitions.  
+According to [this link](https://www.terraform.io/docs/modules/sources.html#github):
 
 ```terraform
 module "policies" {
-  source = "git@github.com:Nepomuceno/terraform-azurerm-monitoring-policies.git"
+  # use this form to clone using ssh creds
+  # source = "git@github.com:Nepomuceno/terraform-azurerm-monitoring-policies.git"
+  # and this one to use https
+  source = "github.com/Nepomuceno/terraform-azurerm-monitoring-policies.git"
 }
 ```
 
