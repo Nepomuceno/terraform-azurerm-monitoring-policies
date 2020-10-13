@@ -9,11 +9,12 @@ provider "azurerm" {
 
 
 resource "azurerm_policy_definition" "base" {
-  for_each     = fileset("${path.module}/templates", "**/rule.json")
-  name         = substr("log-${replace(each.value, "/rule.json", "")}", 0, 54)
-  policy_type  = "Custom"
-  mode         = "All"
-  display_name = "Diagnostic policy ${replace(each.value, "/rule.json", "")}"
+  for_each              = fileset("${path.module}/templates", "**/rule.json")
+  name                  = substr("log-${replace(each.value, "/rule.json", "")}", 0, 54)
+  policy_type           = "Custom"
+  management_group_name = var.management_group_name
+  mode                  = "All"
+  display_name          = "Diagnostic policy ${replace(each.value, "/rule.json", "")}"
   policy_rule = file(
     "${path.module}/templates/${each.value}",
   )
@@ -24,11 +25,11 @@ resource "azurerm_policy_definition" "base" {
 
 
 resource "azurerm_policy_set_definition" "basic_set" {
-  name         = var.name
-  policy_type  = "Custom"
-  display_name = var.name
+  name                  = var.name
+  policy_type           = "Custom"
+  display_name          = var.name
   management_group_name = var.management_group_name
-  parameters = <<PARAMETERS
+  parameters            = <<PARAMETERS
     {
     "requiredRetentionDays": {
       "type": "String",
@@ -147,9 +148,9 @@ PARAMETERS
 
   dynamic "policy_definition_reference" {
     for_each = azurerm_policy_definition.base
-    content {  
+    content {
       policy_definition_id = policy_definition_reference.value.id
-      parameter_values =  <<EOL
+      parameter_values     = <<EOL
           {
             "eventHubAuthorizationRuleId": {"value": "[parameters('eventHubAuthorizationRuleId')]"},
             "eventHubName": {"value": "[parameters('eventHubName')]"},
