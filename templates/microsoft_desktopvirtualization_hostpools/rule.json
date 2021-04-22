@@ -102,6 +102,16 @@
 										
                                         
                                         {
+											"category": "AgentHealthStatus",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "Checkpoint",
 											"enabled": true,
 											"retentionPolicy": {

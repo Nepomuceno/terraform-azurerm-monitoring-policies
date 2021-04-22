@@ -110,8 +110,47 @@
 											}
 										}
 										
+                                        ,
+                                        {
+											"category": "FrontDoorAccessLog",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "FrontDoorHealthProbeLog",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "FrontDoorWebApplicationFirewallLog",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
                                     ],
                                     "metrics": [
+										
+											{
+												"category": "AllMetrics",
+												"enabled": true,
+												"retentionPolicy": {
+													"enabled": true,
+													"days": "[parameters('retentionDays')]"
+												}
+											}
 										
                                     ]
                                 }

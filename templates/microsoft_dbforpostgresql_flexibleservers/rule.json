@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.EnterpriseKnowledgeGraph/services"
+              "equals": "Microsoft.DBforPostgreSQL/flexibleServers"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.EnterpriseKnowledgeGraph/services/providers/diagnosticSettings",
+                                "type": "Microsoft.DBforPostgreSQL/flexibleServers/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,27 +102,7 @@
 										
                                         
                                         {
-											"category": "AuditEvent",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "DataIssue",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "Requests",
+											"category": "PostgreSQLLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -132,6 +112,15 @@
 										
                                     ],
                                     "metrics": [
+										
+											{
+												"category": "AllMetrics",
+												"enabled": true,
+												"retentionPolicy": {
+													"enabled": true,
+													"days": "[parameters('retentionDays')]"
+												}
+											}
 										
                                     ]
                                 }

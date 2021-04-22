@@ -102,6 +102,16 @@
 										
                                         
                                         {
+											"category": "DscNodeStatus",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "JobLogs",
 											"enabled": true,
 											"retentionPolicy": {
@@ -113,16 +123,6 @@
                                         ,
                                         {
 											"category": "JobStreams",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "DscNodeStatus",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

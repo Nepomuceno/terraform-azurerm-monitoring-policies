@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.Insights/AutoscaleSettings"
+              "equals": "microsoft.insights/autoscalesettings"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.Insights/AutoscaleSettings/providers/diagnosticSettings",
+                                "type": "microsoft.insights/autoscalesettings/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
