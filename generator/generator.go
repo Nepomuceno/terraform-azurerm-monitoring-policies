@@ -32,7 +32,7 @@ func formatName(name string) string {
 func getDefinitions() (map[string]LogStructure, error) {
 	metrics, err := getMetrics()
 	// Getting data from the azure
-	resp, err := http.Get("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/azure-monitor/platform/resource-logs-categories.md")
+	resp, err := http.Get("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/azure-monitor/essentials/resource-logs-categories.md")
 	if err != nil {
 		return nil, err
 	}
@@ -57,7 +57,7 @@ func getDefinitions() (map[string]LogStructure, error) {
 		if unsupported {
 			continue
 		}
-		if !strings.HasPrefix(line, "|") || line == "|---|---|" || line == "|Category|Category Display Name|" {
+		if !strings.HasPrefix(line, "|") || line == "|---|---|" || line == "|---|---|---|" || line == "|Category|Category Display Name|Costs To Export|" {
 			continue
 		}
 		logCategory := strings.Split(line, "|")
@@ -78,7 +78,7 @@ func getDefinitions() (map[string]LogStructure, error) {
 
 func getMetrics() (map[string]bool, error) {
 	// Currently the only way to check whihc resources do support metrics.
-	resp, err := http.Get("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/azure-monitor/platform/metrics-supported.md")
+	resp, err := http.Get("https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/azure-monitor/essentials/metrics-supported.md")
 	if err != nil {
 		return nil, err
 	}
