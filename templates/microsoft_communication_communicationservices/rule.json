@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.DataCatalog/datacatalogs"
+              "equals": "Microsoft.Communication/CommunicationServices"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.DataCatalog/datacatalogs/providers/diagnosticSettings",
+                                "type": "Microsoft.Communication/CommunicationServices/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,7 +102,37 @@
 										
                                         
                                         {
-											"category": "ScanStatusLogEvent",
+											"category": "AuthOperational",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "ChatOperational",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "SMSOperational",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "Usage",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -112,6 +142,15 @@
 										
                                     ],
                                     "metrics": [
+										
+											{
+												"category": "AllMetrics",
+												"enabled": true,
+												"retentionPolicy": {
+													"enabled": true,
+													"days": "[parameters('retentionDays')]"
+												}
+											}
 										
                                     ]
                                 }

@@ -132,6 +132,16 @@
 										
                                         ,
                                         {
+											"category": "GremlinRequests",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "MongoRequests",
 											"enabled": true,
 											"retentionPolicy": {

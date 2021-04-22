@@ -112,6 +112,16 @@
 										
                                         ,
                                         {
+											"category": "NetworkSecurityGroupFlowEvent",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "NetworkSecurityGroupRuleCounter",
 											"enabled": true,
 											"retentionPolicy": {

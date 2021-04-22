@@ -102,6 +102,16 @@
 										
                                         
                                         {
+											"category": "Command",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "FailedIngestion",
 											"enabled": true,
 											"retentionPolicy": {
@@ -112,7 +122,47 @@
 										
                                         ,
                                         {
+											"category": "IngestionBatching",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "Query",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "SucceededIngestion",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "TableDetails",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "TableUsageStatistics",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

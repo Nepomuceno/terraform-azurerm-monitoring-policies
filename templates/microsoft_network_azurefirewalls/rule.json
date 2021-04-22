@@ -112,6 +112,16 @@
 										
                                         ,
                                         {
+											"category": "AzureFirewallDnsProxy",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "AzureFirewallNetworkRule",
 											"enabled": true,
 											"retentionPolicy": {

@@ -112,6 +112,26 @@
 										
                                         ,
                                         {
+											"category": "FabricOrderer",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "FabricPeer",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "Proxy",
 											"enabled": true,
 											"retentionPolicy": {

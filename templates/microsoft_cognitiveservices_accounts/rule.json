@@ -120,6 +120,16 @@
 											}
 										}
 										
+                                        ,
+                                        {
+											"category": "Trace",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
                                     ],
                                     "metrics": [
 										

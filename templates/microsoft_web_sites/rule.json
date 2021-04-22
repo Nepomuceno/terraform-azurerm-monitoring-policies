@@ -102,6 +102,16 @@
 										
                                         
                                         {
+											"category": "AppServiceAntivirusScanAuditLogs",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "AppServiceAppLogs",
 											"enabled": true,
 											"retentionPolicy": {
@@ -152,7 +162,7 @@
 										
                                         ,
                                         {
-											"category": "FunctionAppLogs",
+											"category": "AppServiceIPSecAuditLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -162,7 +172,17 @@
 										
                                         ,
                                         {
-											"category": "ScanLogs",
+											"category": "AppServicePlatformLogs",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "FunctionAppLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

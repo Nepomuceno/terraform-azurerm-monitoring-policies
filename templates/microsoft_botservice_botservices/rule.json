@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.DBforPostgreSQL/singleservers"
+              "equals": "microsoft.botservice/botservices"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.DBforPostgreSQL/singleservers/providers/diagnosticSettings",
+                                "type": "microsoft.botservice/botservices/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "PostgreSQLLogs",
+											"category": "BotRequest",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

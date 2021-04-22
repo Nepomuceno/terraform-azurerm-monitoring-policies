@@ -112,6 +112,16 @@
 										
                                         ,
                                         {
+											"category": "guard",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "kube-apiserver",
 											"enabled": true,
 											"retentionPolicy": {
@@ -123,6 +133,16 @@
                                         ,
                                         {
 											"category": "kube-audit",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "kube-audit-admin",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

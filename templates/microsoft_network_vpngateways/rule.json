@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.IoTSpaces/Graph"
+              "equals": "Microsoft.Network/vpnGateways"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.IoTSpaces/Graph/providers/diagnosticSettings",
+                                "type": "Microsoft.Network/vpnGateways/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "Audit",
+											"category": "GatewayDiagnosticLog",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -112,7 +112,7 @@
 										
                                         ,
                                         {
-											"category": "Egress",
+											"category": "IKEDiagnosticLog",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -122,7 +122,7 @@
 										
                                         ,
                                         {
-											"category": "Ingress",
+											"category": "RouteDiagnosticLog",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -132,27 +132,7 @@
 										
                                         ,
                                         {
-											"category": "Operational",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "Trace",
-											"enabled": true,
-											"retentionPolicy": {
-												"days": "[parameters('retentionDays')]",
-												"enabled": true
-											}
-										}
-										
-                                        ,
-                                        {
-											"category": "UserDefinedFunction",
+											"category": "TunnelDiagnosticLog",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -162,6 +142,15 @@
 										
                                     ],
                                     "metrics": [
+										
+											{
+												"category": "AllMetrics",
+												"enabled": true,
+												"retentionPolicy": {
+													"enabled": true,
+													"days": "[parameters('retentionDays')]"
+												}
+											}
 										
                                     ]
                                 }
