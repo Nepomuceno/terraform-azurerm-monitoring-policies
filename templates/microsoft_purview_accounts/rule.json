@@ -102,6 +102,16 @@
 										
                                         
                                         {
+											"category": "DataSensitivityLogEvent",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "ScanStatusLogEvent",
 											"enabled": true,
 											"retentionPolicy": {

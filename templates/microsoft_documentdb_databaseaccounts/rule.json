@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.DocumentDB/databaseAccounts"
+              "equals": "Microsoft.DocumentDB/DatabaseAccounts"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.DocumentDB/databaseAccounts/providers/diagnosticSettings",
+                                "type": "Microsoft.DocumentDB/DatabaseAccounts/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -173,6 +173,16 @@
                                         ,
                                         {
 											"category": "QueryRuntimeStatistics",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "TableApiRequests",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

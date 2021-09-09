@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "microsoft.network/bastionHosts"
+              "equals": "Microsoft.HealthcareApis/workspaces/dicomservices"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "microsoft.network/bastionHosts/providers/diagnosticSettings",
+                                "type": "Microsoft.HealthcareApis/workspaces/dicomservices/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "BastionAuditLogs",
+											"category": "AuditLogs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",
@@ -112,15 +112,6 @@
 										
                                     ],
                                     "metrics": [
-										
-											{
-												"category": "AllMetrics",
-												"enabled": true,
-												"retentionPolicy": {
-													"enabled": true,
-													"days": "[parameters('retentionDays')]"
-												}
-											}
 										
                                     ]
                                 }

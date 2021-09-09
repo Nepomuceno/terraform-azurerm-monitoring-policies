@@ -102,6 +102,16 @@
 										
                                         
                                         {
+											"category": "Audit",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "HttpRequest",
 											"enabled": true,
 											"retentionPolicy": {

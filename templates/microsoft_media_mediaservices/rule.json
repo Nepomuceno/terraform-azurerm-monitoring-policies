@@ -110,6 +110,16 @@
 											}
 										}
 										
+                                        ,
+                                        {
+											"category": "MediaAccount",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
                                     ],
                                     "metrics": [
 										

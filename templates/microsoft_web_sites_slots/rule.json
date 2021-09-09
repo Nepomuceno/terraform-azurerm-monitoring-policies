@@ -142,6 +142,16 @@
 										
                                         ,
                                         {
+											"category": "AppServiceDiagnosticToolsLogs",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "AppServiceFileAuditLogs",
 											"enabled": true,
 											"retentionPolicy": {

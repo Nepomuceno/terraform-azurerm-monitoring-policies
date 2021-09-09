@@ -112,6 +112,26 @@
 										
                                         ,
                                         {
+											"category": "CallDiagnosticsPRIVATEPREVIEW",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
+											"category": "CallSummaryPRIVATEPREVIEW",
+											"enabled": true,
+											"retentionPolicy": {
+												"days": "[parameters('retentionDays')]",
+												"enabled": true
+											}
+										}
+										
+                                        ,
+                                        {
 											"category": "ChatOperational",
 											"enabled": true,
 											"retentionPolicy": {

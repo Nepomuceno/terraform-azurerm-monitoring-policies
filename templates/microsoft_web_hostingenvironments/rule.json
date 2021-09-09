@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "microsoft.web/hostingenvironments"
+              "equals": "Microsoft.Web/hostingEnvironments"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "microsoft.web/hostingenvironments/providers/diagnosticSettings",
+                                "type": "Microsoft.Web/hostingEnvironments/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -112,6 +112,15 @@
 										
                                     ],
                                     "metrics": [
+										
+											{
+												"category": "AllMetrics",
+												"enabled": true,
+												"retentionPolicy": {
+													"enabled": true,
+													"days": "[parameters('retentionDays')]"
+												}
+											}
 										
                                     ]
                                 }
