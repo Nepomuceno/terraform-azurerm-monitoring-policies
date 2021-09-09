@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.Network/applicationGateways"
+              "equals": "Microsoft.Network/applicationgateways"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.Network/applicationGateways/providers/diagnosticSettings",
+                                "type": "Microsoft.Network/applicationgateways/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",

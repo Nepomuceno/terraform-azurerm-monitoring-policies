@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "microsoft.web/sites"
+              "equals": "Microsoft.Web/sites"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "microsoft.web/sites/providers/diagnosticSettings",
+                                "type": "Microsoft.Web/sites/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",

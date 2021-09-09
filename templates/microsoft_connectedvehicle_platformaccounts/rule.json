@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "microsoft.network/bastionHosts"
+              "equals": "Microsoft.ConnectedVehicle/platformAccounts"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "microsoft.network/bastionHosts/providers/diagnosticSettings",
+                                "type": "Microsoft.ConnectedVehicle/platformAccounts/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
@@ -102,7 +102,7 @@
 										
                                         
                                         {
-											"category": "BastionAuditLogs",
+											"category": "Logs",
 											"enabled": true,
 											"retentionPolicy": {
 												"days": "[parameters('retentionDays')]",

@@ -7,7 +7,7 @@
             },
             {
               "field": "type",
-              "equals": "Microsoft.Network/vpnGateways"
+              "equals": "microsoft.network/vpngateways"
             }
         ]
     },
@@ -89,7 +89,7 @@
                         },
                         "resources": [
                             {
-                                "type": "Microsoft.Network/vpnGateways/providers/diagnosticSettings",
+                                "type": "microsoft.network/vpngateways/providers/diagnosticSettings",
                                 "name": "[concat(parameters('name'), '/', 'Microsoft.Insights/setByPolicy')]",
                                 "dependsOn": [],
                                 "apiVersion": "2017-05-01-preview",
